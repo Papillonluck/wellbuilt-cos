@@ -2034,6 +2034,15 @@ section.block .sec-close p:not(.close-note) {
   color: rgb(154,150,140); margin: 0 0 10px; max-width: 66ch;
 }
 
+/* The header CTA sits above the rail cards, so it takes their width rather
+   than the rail's full width. The rail is 306px with 20px gutters. */
+@media (min-width: 901px) {
+  .hdr-inner .cta {
+    flex: 0 0 266px; width: 266px;
+    justify-content: center; text-align: center;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -2736,7 +2745,7 @@ section.block .sec-close p:not(.close-note) {
 
 <div class="ck" id="ck" role="dialog" aria-live="polite" aria-label="Cookie notice">
   <div class="ck-inner">
-    <p>One cookie remembers this choice. No analytics, no advertising, no tracking. <a href="cookie-policy.html">Cookie Policy</a>.</p>
+    <p>We use one cookie to remember whether you&rsquo;ve seen this notice. No analytics, no advertising, no tracking. Read our <a href="cookie-policy.html">Cookie Policy</a>.</p>
     <div class="ck-btns">
       <button class="ck-btn ck-decline" data-ck="decline">Decline</button>
       <button class="ck-btn ck-allow" data-ck="allow">Allow</button>
