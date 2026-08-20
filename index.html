@@ -2003,6 +2003,31 @@ section.block .sec-close p:not(.close-note) {
   section.block.light { margin: 0 -22px; }
 }
 
+/* ---- Back to top. Appears once the reader is well past the hero, so it
+   never competes with the diagnostic CTA on first view. ---- */
+.totop {
+  position: fixed; right: 28px; bottom: 28px; z-index: 90;
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 12px 20px; min-height: 44px;
+  background: rgba(26,26,24,0.82);
+  box-shadow: inset 0 0 0 1px rgba(249,245,242,0.28);
+  color: var(--cream); text-decoration: none;
+  font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  opacity: 0; visibility: hidden; transform: translateY(10px);
+  transition: opacity .3s ease, transform .3s ease, visibility .3s;
+  backdrop-filter: blur(6px);
+}
+.totop.is-in { opacity: 1; visibility: visible; transform: none; }
+.totop:hover { box-shadow: inset 0 0 0 1px rgba(249,245,242,0.55); }
+.totop .ar { font-size: 13px; line-height: 1; }
+/* clear the cookie notice while it is showing */
+.ck.is-up ~ .totop, body:has(.ck.is-up) .totop { bottom: 92px; }
+@media (max-width: 900px) {
+  .totop { right: 18px; bottom: 18px; padding: 11px 16px; }
+  body:has(.ck.is-up) .totop { bottom: 150px; }
+}
+
 </style>
 </head>
 <body>
@@ -2044,7 +2069,7 @@ section.block .sec-close p:not(.close-note) {
         <div class="hero-actions">
           <a href="#leverage" class="cta cta-primary">See what changes →</a>
         </div>
-        <p class="hero-proof">Featured twice in the Financial Times</p>
+        <p class="hero-proof">2&times; Featured in the Financial Times</p>
       </div>
     </section>
 
@@ -2676,6 +2701,7 @@ section.block .sec-close p:not(.close-note) {
         <h2 class="fin-h">Find out where the business <br class="lb">still depends on you.</h2>
         <p class="fin-b">In 30 minutes, we'll identify where decisions, coordination and recurring work still run through you, and whether a Fractional Chief of Staff is the right fit.</p>
         <a data-tf-popup="LCkxRrH1" data-tf-opacity="100" data-tf-size="100" data-tf-iframe-props="title=Founder Diagnostic" data-tf-transitive-search-params data-tf-medium="snippet" href="https://form.typeform.com/to/LCkxRrH1" class="cta cta-lime">Book a Founder Diagnostic Call →</a>
+        <p class="fin-note">Mutual NDA signed before any engagement begins.</p>
       </div>
     </section>
 
@@ -2710,6 +2736,8 @@ section.block .sec-close p:not(.close-note) {
     </div>
   </div>
 </div>
+
+<a href="#top" class="totop" id="totop" aria-label="Back to top"><span class="ar">&uarr;</span> Top</a>
 
 
 <script src="https://embed.typeform.com/next/embed.js"></script>
@@ -2876,6 +2904,19 @@ section.block .sec-close p:not(.close-note) {
     el.classList.remove('is-in');
     setTimeout(function(){ el.classList.remove('is-up'); }, 350);
   });
+})();
+
+/* Back to top: only once the reader is past the first couple of screens. */
+(function(){
+  var el = document.getElementById('totop');
+  if (!el) return;
+  var check = function(){ el.classList.toggle('is-in', window.scrollY > window.innerHeight * 1.5); };
+  window.addEventListener('scroll', check, { passive: true });
+  el.addEventListener('click', function(e){
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  check();
 })();
 
 </script>
