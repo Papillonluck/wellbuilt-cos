@@ -2045,6 +2045,60 @@ section.block .sec-close p:not(.close-note) {
 .tqs-track { min-height: 0; }
 .tqs-item { position: static; }
 
+/* ================= MOBILE FIXES ================= */
+@media (max-width: 900px) {
+
+  /* Tabs were full-width, so only one was ever visible and nothing signalled
+     that more existed. Narrower tabs let the next one peek in. */
+  .lv-tab, .wf-tab { flex: 0 0 76%; scroll-snap-align: start; }
+
+  /* The FT proof line sat too far below the hero CTA */
+  .hero-proof { margin-top: 26px; }
+
+  /* The tier boxes were square, forcing labels onto two lines */
+  .tier.tier-top, .tier.tier-mid { width: 100%; max-width: 300px; min-height: 0; padding: 20px 16px; }
+  .tier .tier-k { white-space: nowrap; }
+
+  /* Back to top sat over the copy at partial opacity */
+  .totop { background: var(--charcoal); box-shadow: inset 0 0 0 1px rgba(249,245,242,0.4); }
+}
+
+/* Phrases that must never split across lines on a narrow screen */
+.nb { white-space: nowrap; }
+
+/* ---- Mobile only: where you are, how far through, one way back.
+   Desktop keeps the rail; none of this exists above 900px. ---- */
+.mnav { display: none; }
+@media (max-width: 900px) {
+  .mnav {
+    display: block; position: fixed; left: 0; right: 0; bottom: 0; z-index: 95;
+    background: rgba(26,26,24,0.97); backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(249,245,242,0.16);
+  }
+  .mnav-bar { height: 2px; background: rgba(249,245,242,0.14); }
+  .mnav-fill { display: block; height: 2px; width: 0; background: var(--accent); transition: width .15s linear; }
+  .mnav-inner {
+    min-height: 46px; display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; padding: 0 22px;
+  }
+  .mnav-now {
+    font-family: 'DM Sans', sans-serif; font-size: 12px; letter-spacing: 0.02em;
+    color: var(--text-body); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .mnav-top {
+    flex: 0 0 auto; display: inline-flex; align-items: center; gap: 7px;
+    min-height: 46px; padding-left: 14px; text-decoration: none; color: var(--cream);
+    font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .mnav-top .ar { color: var(--accent); font-size: 13px; }
+
+  /* the notice sits above the bar; the floating button is no longer needed */
+  .ck { bottom: 48px; }
+  .totop { display: none; }
+  body { padding-bottom: 48px; }
+}
+
 </style>
 </head>
 <body>
@@ -2225,7 +2279,7 @@ section.block .sec-close p:not(.close-note) {
         <span class="tag-dark">03 / The WellBuilt. Method</span>
       </div>
 
-      <h2 class="sec-h reveal">See the whole company. <br class="lb">Own the outcome.</h2>
+      <h2 class="sec-h reveal">See the whole company. <br class="lb"><span class="nb">Own the outcome.</span></h2>
 
       <p class="sec-lead-line reveal">Strategic enough to see across the business. <br class="lb">Close enough to execution to move what matters.</p>
 
@@ -2619,7 +2673,7 @@ section.block .sec-close p:not(.close-note) {
         <span class="tag-dark">Who it's for</span>
       </div>
 
-      <h2 class="sec-h reveal">Built for what happens <br class="lb">after the raise.</h2>
+      <h2 class="sec-h reveal">Built for what happens <br class="lb"><span class="nb">after the raise.</span></h2>
 
       <p class="sec-lead-line reveal">WellBuilt is designed for founders whose companies are adding people, priorities and complexity faster than the operating structure around them can keep up.</p>
 
@@ -2753,6 +2807,14 @@ section.block .sec-close p:not(.close-note) {
 </div>
 
 <a href="#top" class="totop" id="totop" aria-label="Back to top"><span class="ar">&uarr;</span> Top</a>
+
+<div class="mnav" id="mnav" aria-hidden="true">
+  <div class="mnav-bar"><span class="mnav-fill" id="mnavFill"></span></div>
+  <div class="mnav-inner">
+    <span class="mnav-now" id="mnavNow">The Founder Bottleneck</span>
+    <a href="#top" class="mnav-top" id="mnavTop"><span class="ar">&uarr;</span> Top</a>
+  </div>
+</div>
 
 
 <script src="https://embed.typeform.com/next/embed.js"></script>
@@ -2892,6 +2954,34 @@ section.block .sec-close p:not(.close-note) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
   check();
+})();
+
+/* Mobile bar: how far through the page, and which section you're in. */
+(function(){
+  var nav = document.getElementById('mnav');
+  if (!nav) return;
+  var now = document.getElementById('mnavNow'),
+      fill = document.getElementById('mnavFill'),
+      top = document.getElementById('mnavTop'),
+      ids = ['bottleneck','leverage','works','ninety','why','fractional','fit','faq','diagnostic'],
+      names = ['The Founder Bottleneck','Founder Leverage','The WellBuilt. Method','The First Six Months',
+               'Why WellBuilt.','Why fractional',"Who it's for",'Questions','Founder Diagnostic'];
+  top.addEventListener('click', function(e){
+    e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  var update = function(){
+    var h = document.body.scrollHeight - window.innerHeight;
+    fill.style.width = Math.max(0, Math.min(100, (window.scrollY / h) * 100)) + '%';
+    var label = 'Scale without founder bottleneck.';
+    ids.forEach(function(id, i){
+      var s = document.getElementById(id);
+      if (s && s.getBoundingClientRect().top <= window.innerHeight * 0.4) label = names[i];
+    });
+    now.textContent = label;
+  };
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
 })();
 
 </script>
