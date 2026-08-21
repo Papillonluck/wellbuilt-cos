@@ -2050,7 +2050,7 @@ section.block .sec-close p:not(.close-note) {
 
   /* Tabs were full-width, so only one was ever visible and nothing signalled
      that more existed. Narrower tabs let the next one peek in. */
-  .lv-tab, .wf-tab { flex: 0 0 76%; scroll-snap-align: start; }
+  .lv-tab, .wf-tab { flex: 0 0 62%; scroll-snap-align: start; }
 
   /* The FT proof line sat too far below the hero CTA */
   .hero-proof { margin-top: 26px; }
@@ -2097,6 +2097,13 @@ section.block .sec-close p:not(.close-note) {
   .ck { bottom: 48px; }
   .totop { display: none; }
   body { padding-bottom: 48px; }
+}
+
+
+@media (max-width: 900px) {
+  /* the hero ran under the progress bar, hiding the FT proof line */
+  .hero { min-height: 0; padding-top: 28px; padding-bottom: 20px; }
+  .mnav-now { font-variant-numeric: tabular-nums; }
 }
 
 </style>
@@ -2964,8 +2971,9 @@ section.block .sec-close p:not(.close-note) {
       fill = document.getElementById('mnavFill'),
       top = document.getElementById('mnavTop'),
       ids = ['bottleneck','leverage','works','ninety','why','fractional','fit','faq','diagnostic'],
-      names = ['The Founder Bottleneck','Founder Leverage','The WellBuilt. Method','The First Six Months',
-               'Why WellBuilt.','Why fractional',"Who it's for",'Questions','Founder Diagnostic'];
+      names = ['01 / The Founder Bottleneck','02 / Founder Leverage','03 / The WellBuilt. Method',
+               '04 / The First Six Months','05 / Why WellBuilt.','Why fractional',"Who it's for",
+               'Questions','Founder Diagnostic'];
   top.addEventListener('click', function(e){
     e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' });
   });
