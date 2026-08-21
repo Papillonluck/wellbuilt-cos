@@ -2106,6 +2106,15 @@ section.block .sec-close p:not(.close-note) {
   .mnav-now { font-variant-numeric: tabular-nums; }
 }
 
+
+/* The mobile footer orders its children explicitly; without a value the
+   signature defaulted to 0 and jumped above the logo. */
+@media (max-width: 900px) {
+  .footer-made { order: 5; margin-bottom: 0; }
+  /* the flex gap already separates them; the copyright belongs with the line above */
+  .footer-copy { order: 6; margin-top: -16px; }
+}
+
 </style>
 </head>
 <body>
