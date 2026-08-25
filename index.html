@@ -2612,6 +2612,13 @@ section.block .sec-close p:not(.close-note) {
 br.mb { display: none; }
 @media (max-width: 900px) { br.mb { display: inline; } }
 
+/* 02's closing statement sat lower than 03's equivalent, and the flow labels
+   between the two panels in 03 were too faint to read on a phone. */
+@media (max-width: 900px) {
+  #leverage .sec-close { margin-top: 52px; }
+  .tier-flow { color: var(--mid); }
+}
+
 </style>
 </head>
 <body>
@@ -2647,7 +2654,7 @@ br.mb { display: none; }
     <!-- HERO -->
     <section class="hero">
       <div class="hero-copy">
-        <p class="hero-eyebrow">For funded, high-growth Healthtech &amp; Consumer Wellness founders</p>
+        <p class="hero-eyebrow">For funded, high-growth Healthtech<br class="mb">&amp; Consumer Wellness founders</p>
         <h1>Build &amp; scale without <br class="lb"><span class="lime">the founder bottleneck.</span></h1>
         <p class="hero-setup">As the company grows, the question changes.</p>
         <p class="lead">How do you get more leverage without <br class="lb">simply adding more of yourself?</p>
