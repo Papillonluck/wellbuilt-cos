@@ -2521,7 +2521,7 @@ section.block .sec-close p:not(.close-note) {
   font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 1.72;
   color: var(--mid); margin: 0 0 16px;
 }
-#why .ent .ent-k {
+#why .ent-k {
   font-family: Georgia, 'Times New Roman', serif;
   font-size: clamp(21px, 2vw, 26px); line-height: 1.3; letter-spacing: -0.004em;
   color: var(--charcoal); margin: 24px 0 0;
@@ -2529,7 +2529,7 @@ section.block .sec-close p:not(.close-note) {
 @media (max-width: 900px) {
   #why .ent { padding-top: 38px; }
   #why .ent p { font-size: 15px; }
-  #why .ent .ent-k { font-size: 5vw; margin-top: 20px; }
+  #why .ent-k { font-size: 5vw; margin-top: 20px; }
 }
 
 /* The claim needs a wider break on desktop and a narrower one on mobile. */
@@ -2618,6 +2618,10 @@ br.mb { display: none; }
   #leverage .sec-close { margin-top: 52px; }
   .tier-flow { color: var(--mid); }
 }
+
+/* The claim now introduces the record, so it needs clearance beneath it. */
+#why .ent-k { margin-bottom: 26px; }
+@media (max-width: 900px) { #why .ent-k { margin-bottom: 22px; } }
 
 </style>
 </head>
@@ -3111,11 +3115,11 @@ br.mb { display: none; }
       <div class="ent reveal">
         <p>Papillon has built her own businesses and operated alongside founders building theirs. That changes how she works: where she sees risk, how she weighs priorities, which constraints are real, and what genuinely needs the founder.</p>
         <p>You get judgement shaped by building businesses, not only by operating inside them.</p>
-        <p class="ent-k">A high-impact, entrepreneurial<br>Chief of Staff.</p>
-      </div>
+        </div>
 
       <!-- THE RECORD -->
       <span class="cmp-label reveal">In brief</span>
+      <p class="ent-k">A high-impact, entrepreneurial<br>Chief of Staff.</p>
       <div class="record reveal">
         <div class="rec"><span class="rec-n">14 years</span><span class="rec-k">Institutional finance</span></div>
         <div class="rec"><span class="rec-n">16 years</span><span class="rec-k">Consumer wellness &amp; digital health</span></div>
