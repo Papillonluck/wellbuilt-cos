@@ -903,7 +903,8 @@ section.block.dark {
 .sec-close .cta { padding: 18px 40px; background: var(--cream); color: var(--charcoal); }
 
 @media (max-width: 900px) {
-  section.block.dark { padding: 20px 0 64px; }
+  section.block { padding-top: 68px; }
+  section.block.dark { padding: 68px 0 64px; }
   .sec-h { max-width: none; }
   .shift { grid-template-columns: 1fr; }
   .shift-note { max-width: none; }
@@ -972,7 +973,7 @@ section.block.dark {
 @media (max-width: 900px) {
   .lv { grid-template-columns: 1fr; }
   .lv-tabs { flex-direction: row; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  .lv-tab { flex: 0 0 auto; min-width: 190px; padding: 18px 20px;
+  .lv-tab { flex: 0 0 auto; min-width: 0; padding: 18px 18px;
     border-bottom: 0; border-right: 1px solid var(--rule); }
   .lv-tab:last-child { border-right: 0; }
   .lv-tab.is-on { box-shadow: inset 0 3px 0 var(--accent); }
@@ -1700,7 +1701,7 @@ section.block.unnumbered .tag-dark { color: var(--text-soft); }
 @media (max-width: 900px) {
   .wf { grid-template-columns: 1fr; }
   .wf-tabs { flex-direction: row; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  .wf-tab { flex: 0 0 auto; min-width: 190px; padding: 18px 20px;
+  .wf-tab { flex: 0 0 auto; min-width: 0; padding: 18px 18px;
     border-bottom: 0; border-right: 1px solid var(--rule); }
   .wf-tab:last-child { border-right: 0; }
   .wf-tab.is-on { box-shadow: inset 0 3px 0 var(--accent); }
@@ -1968,7 +1969,7 @@ section.block .sec-close p:not(.close-note) {
   .lv-tabs, .wf-tabs {
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-    mask-image: linear-gradient(to right, #000 82%, transparent 100%);
+    mask-image: linear-gradient(to right, #000 74%, transparent 100%);
   }
   .lv-tab, .wf-tab { scroll-snap-align: start; }
 }
@@ -2050,7 +2051,7 @@ section.block .sec-close p:not(.close-note) {
 
   /* Tabs were full-width, so only one was ever visible and nothing signalled
      that more existed. Narrower tabs let the next one peek in. */
-  .lv-tab, .wf-tab { flex: 0 0 62%; scroll-snap-align: start; }
+  .lv-tab, .wf-tab { flex: 0 0 43%; scroll-snap-align: start; }
 
   /* The FT proof line sat too far below the hero CTA */
   .hero-proof { margin-top: 26px; }
@@ -2482,7 +2483,7 @@ section.block .sec-close p:not(.close-note) {
 .ff { float: right; width: 400px; max-width: 400px; margin: 6px 0 140px 44px; clear: none; }
 .ff-2 { width: 100%; height: auto; display: block; margin-top: 16px; }
 @media (max-width: 1280px) {
-  .ff { float: none; width: 100%; max-width: 560px; margin: 34px 0 0; }
+  .ff { float: none; width: 100%; max-width: 560px; margin: 34px 0 30px; }
 }
 
 /* Month reference sits quietly beside the day range. */
@@ -2555,6 +2556,61 @@ section.block .sec-close p:not(.close-note) {
   .finb-d { display: none; }
   .finb-n { display: inline; }
 }
+.fact-pre { font-style: normal; font-size: 0.46em; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--text-soft); margin-right: 6px; vertical-align: 0.32em; }
+
+/* A little more air under the category line on phones. */
+@media (max-width: 900px) { .hero-support { margin-top: 26px; } }
+
+
+/* Timeline phase labels were set for desktop; too small to read on a phone. */
+@media (max-width: 900px) {
+  .tl-phase span { font-size: 15px; letter-spacing: 0.13em; }
+  .tl-phase em { font-size: 15px; }
+  .tl-phase span i { font-size: 14px; }
+  /* more air between the worked-example note and the timeline heading */
+  .wf-note { margin-bottom: 34px; }
+}
+
+/* Section 01 sets its own padding, and the label above the timeline needed
+   more clearance from the worked examples on a phone. */
+@media (max-width: 900px) {
+  #bottleneck { padding-top: 68px; }
+  #ninety .wf-note + .cmp-label { margin-top: 88px; }
+}
+
+/* Caption was butting straight into the paragraph beneath it, and the gap
+   under the pull-quote was larger than the gap above it. */
+@media (max-width: 900px) {
+  #why .ff { margin-bottom: 30px; }
+  #why .ent { padding-top: 0; }
+}
+
+/* FAQ and the diagnostic panel are both dark, so their stacked padding read as
+   one empty band on a phone. */
+@media (max-width: 900px) {
+  #faq { padding-bottom: 34px; }
+  #diagnostic { padding-top: 62px; }
+}
+
+/* The sticky header CTA was lighter than the final CTA, so it read as less
+   deliberate. Match the weight and tracking. */
+.site-header .cta, #mnav .cta {
+  font-weight: 700;
+  letter-spacing: 0.09em;
+}
+
+/* Section sub-labels were set at 11px for desktop; too small to read on a
+   phone, and smaller than the timeline phase labels beneath them. */
+@media (max-width: 900px) {
+  .cmp-label { font-size: 14px; letter-spacing: 0.13em; }
+  .tl-phase span { font-size: 16px; }
+  .tl-phase em { font-size: 15px; }
+}
+
+/* A break that only applies on narrow screens, the inverse of br.lb. */
+br.mb { display: none; }
+@media (max-width: 900px) { br.mb { display: inline; } }
 
 </style>
 </head>
@@ -2710,7 +2766,7 @@ section.block .sec-close p:not(.close-note) {
 
       <!-- AT YOUR STAGE: the same argument, at either end of the journey -->
       <span class="cmp-label reveal">What actually needs you</span>
-      <h3 class="stg-h reveal">More of it genuinely requires you.<br>The question is what doesn&rsquo;t.</h3>
+      <h3 class="stg-h reveal">More of it genuinely<br>requires you.<br>The question is<br class="mb">what doesn&rsquo;t.</h3>
 
       <div class="stg-thru stg-solo reveal">
         <span class="stg-k stg-k-on">The leverage compounds</span>
@@ -2982,7 +3038,7 @@ section.block .sec-close p:not(.close-note) {
       <div class="facts reveal">
         <div class="fact"><span class="fact-n">90 days</span><span class="fact-k">Initial engagement term.</span></div>
         <div class="fact"><span class="fact-n">10 hours<em class="fact-pm">a week</em></span><span class="fact-k">Capacity flexes around what the business needs.</span></div>
-        <div class="fact"><span class="fact-n">$9,750</span><span class="fact-k">Every four weeks</span></div>
+        <div class="fact"><span class="fact-n"><em class="fact-pre">From</em> $10,500</span><span class="fact-k">Every four weeks</span></div>
         <div class="fact fact-ev"><span class="fact-n">25&ndash;50%</span><span class="fact-k">Time back reported by executives who&rsquo;ve hired a Chief of Staff.<sup>*</sup></span></div>
       </div>
 
@@ -3048,7 +3104,7 @@ section.block .sec-close p:not(.close-note) {
       <div class="ent reveal">
         <p>Papillon has built her own businesses and operated alongside founders building theirs. That changes how she works: where she sees risk, how she weighs priorities, which constraints are real, and what genuinely needs the founder.</p>
         <p>You get judgement shaped by building businesses, not only by operating inside them.</p>
-        <p class="ent-k">A high-impact, entrepreneurial Chief of Staff.</p>
+        <p class="ent-k">A high-impact, entrepreneurial<br>Chief of Staff.</p>
       </div>
 
       <!-- THE RECORD -->
@@ -3153,7 +3209,7 @@ section.block .sec-close p:not(.close-note) {
       <div class="repro repro-3 reveal">
         <div class="rp rp-wb">
           <span class="rp-k">Fractional WellBuilt.</span>
-          <span class="rp-n">$126,750</span>
+          <span class="rp-n">$136,500</span>
           <span class="rp-b">Annualised &middot; 10 hours/week</span>
         </div>
         <div class="rp">
@@ -3168,7 +3224,7 @@ section.block .sec-close p:not(.close-note) {
         </div>
       </div>
       <p class="repro-note reveal">* Estimated employment cost includes employer taxes and benefits. <br class="lb">Recruitment, equity and ramp time sit on top.</p>
-      <p class="repro-src reveal">WellBuilt figure based on $9,750 every four weeks. Published ranges from current senior Chief of Staff roles, including roles with AI adoption and workflow automation responsibilities. Fully loaded employment cost uses the Hadzima methodology.</p>
+      <p class="repro-src reveal">WellBuilt figure based on $10,500 every four weeks. Published ranges from current senior Chief of Staff roles, including roles with AI adoption and workflow automation responsibilities. Fully loaded employment cost uses the Hadzima methodology.</p>
 
       <div class="repro-claim reveal">
         <p>That doesn't make fractional better. <br class="lb">It makes it a different hiring decision.</p>
@@ -3267,7 +3323,7 @@ section.block .sec-close p:not(.close-note) {
 
         <details class="fq">
           <summary>What does it cost?</summary>
-          <div class="fq-a"><p>$9,750 every four weeks for 10 hours a week. The engagement is structured in 90-day periods.</p></div>
+          <div class="fq-a"><p>From $10,500 every four weeks for 10 hours a week. The engagement is structured in 90-day periods.</p></div>
         </details>
       </div>
     </section>
