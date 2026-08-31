@@ -171,6 +171,15 @@
     h2 { margin: 36px 0 12px; }
     .processor-row { grid-template-columns: 1fr; gap: 6px; padding: 14px 0; }
   }
+
+.legal-nav { margin-top: 48px; padding-top: 26px; border-top: 0.5px solid rgba(26,26,24,0.14);
+  display: flex; flex-wrap: wrap; gap: 26px; align-items: center; }
+.legal-nav a { display: inline-flex; align-items: center; min-height: 44px;
+  font-size: 11px; font-weight: 500; color: var(--charcoal); text-transform: uppercase;
+  letter-spacing: 0.1em; text-decoration: none; border-bottom: 0.5px solid var(--charcoal);
+  padding-bottom: 2px; }
+.legal-nav a.home { border-bottom-color: rgba(26,26,24,0.35); }
+.back-link { display: none; }
 </style>
 </head>
 <body>
@@ -220,6 +229,11 @@
   <div class="processor-row">
     <strong>Fathom</strong>
     <p>Meeting recording and transcription, used to capture meetings during an engagement. Read <a href="https://fathom.video/privacy" target="_blank" rel="noopener noreferrer">Fathom's privacy policy</a>.</p>
+  </div>
+
+  <div class="processor-row">
+    <strong>Granola</strong>
+    <p>Meeting notes and transcription, used to capture meetings during an engagement. Read <a href="https://www.granola.ai/security" target="_blank" rel="noopener noreferrer">Granola's security and privacy information</a>.</p>
   </div>
 
   <div class="processor-row">
@@ -273,7 +287,7 @@
 <ul>
   <li><strong>Enquiry and call booking data:</strong> retained for as long as needed to respond and, where relevant, to begin an engagement, then deleted when no longer required.</li>
   <li><strong>Client and engagement records:</strong> retained for the duration of the engagement and for any period required to meet legal, accounting or tax obligations.</li>
-  <li><strong>Meeting recordings and transcripts:</strong> retained for the duration of the engagement and deleted within 90 days of it ending, unless you ask us to delete them sooner or a longer period is agreed in the engagement letter.</li>
+  <li><strong>Meeting recordings, notes and transcripts:</strong> retained for the duration of the engagement and deleted within 90 days of it ending, unless you ask us to delete them sooner or a longer period is agreed in the engagement letter.</li>
   <li><strong>Transaction records:</strong> retained for 7 years to comply with HMRC accounting requirements.</li>
   <li><strong>Personal data on request to delete:</strong> removed within 30 days of a verified request, except where retention is legally required (for example, transaction records).</li>
 </ul>
@@ -326,7 +340,11 @@
   <p style="margin: 8px 0 0;">WellBuilt. is a trading name of Iconic CEO Limited, registered in England &amp; Wales at Swift House, Ground Floor, 18 Hoffmans Way, Chelmsford, Essex, CM1 1GU, United Kingdom. Company Number: 12223405 · VAT Number: GB 335 4313 23.</p>
 </div>
 
-<a href="index.html" class="back-link">← Back to WellBuilt.</a>
+<nav class="legal-nav">
+  <a href="terms.html">Terms &amp; Conditions</a>
+  <a href="cookie-policy.html">Cookie Policy</a>
+  <a href="index.html" class="home">&larr; Back to WellBuilt.</a>
+</nav>
 
 </body>
 </html>

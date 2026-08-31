@@ -138,6 +138,15 @@
     h1 { margin-bottom: 32px; }
     h2 { margin: 36px 0 12px; }
   }
+
+.legal-nav { margin-top: 48px; padding-top: 26px; border-top: 0.5px solid rgba(26,26,24,0.14);
+  display: flex; flex-wrap: wrap; gap: 26px; align-items: center; }
+.legal-nav a { display: inline-flex; align-items: center; min-height: 44px;
+  font-size: 11px; font-weight: 500; color: var(--charcoal); text-transform: uppercase;
+  letter-spacing: 0.1em; text-decoration: none; border-bottom: 0.5px solid var(--charcoal);
+  padding-bottom: 2px; }
+.legal-nav a.home { border-bottom-color: rgba(26,26,24,0.35); }
+.back-link { display: none; }
 </style>
 </head>
 <body>
@@ -181,7 +190,11 @@
   <p style="margin: 8px 0 0;">WellBuilt. is a trading name of Iconic CEO Limited, registered in England &amp; Wales at Swift House, Ground Floor, 18 Hoffmans Way, Chelmsford, Essex, CM1 1GU, United Kingdom. Company Number: 12223405 · VAT Number: GB 335 4313 23.</p>
 </div>
 
-<a href="index.html" class="back-link">← Back to WellBuilt.</a>
+<nav class="legal-nav">
+  <a href="privacy-policy.html">Privacy Policy</a>
+  <a href="terms.html">Terms &amp; Conditions</a>
+  <a href="index.html" class="home">&larr; Back to WellBuilt.</a>
+</nav>
 
 </body>
 </html>
