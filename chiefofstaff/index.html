@@ -786,6 +786,12 @@ section.panel.finale-wrap{padding:96px 72px!important;}
   .lvl-note{display:inline;}
   .lvl-note2::before{content:' ';}
 }
+
+/* mobile: tighten the space above the closing question */
+@media (max-width:820px){
+  .roi-q2{margin-top:20px!important;}
+  .roi-grid span:nth-last-child(-n+2){padding-bottom:6px!important;}
+}
 </style>
 </head>
 <body>
@@ -928,7 +934,7 @@ section.panel.finale-wrap{padding:96px 72px!important;}
       <span>Building the team</span><span>Setting the strategy</span>
     </div>
 
-    <p class="roi-q2">And what could the business do if it stopped waiting for&nbsp;you?</p>
+    <p class="roi-q2">And what could the business do if it<br class="mb"> stopped waiting for&nbsp;you?</p>
     <p class="owns-close" style="margin-top:44px;">The value isn&rsquo;t simply the time you get back. It&rsquo;s what becomes possible when you spend it growing the business instead of running everything inside it.</p>
   </div>
 </section>
