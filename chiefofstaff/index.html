@@ -774,6 +774,18 @@ section.panel.finale-wrap{padding:96px 72px!important;}
   .stages-wrap .stage{padding-left:34px!important;}
 }
 .pf-q span{color:var(--soft);}
+
+/* mobile only: close the band above the salary figures */
+@media (max-width:820px){
+  .cmp2way{margin-top:26px!important;padding-top:24px!important;}
+  .cmp-tail{margin-bottom:0!important;}
+}
+
+/* mobile: run the two notes as one continuous paragraph */
+@media (max-width:820px){
+  .lvl-note{display:inline;}
+  .lvl-note2::before{content:' ';}
+}
 </style>
 </head>
 <body>
@@ -947,7 +959,7 @@ section.panel.finale-wrap{padding:96px 72px!important;}
 
 <!-- PROOF -->
 <section class="panel t-wash proof-beat reveal">
-  <blockquote class="pf-q">Papillon has a rare ability to see, with remarkable clarity, what others cannot, <br><span>and the work ethic to turn that vision into reality.</span></blockquote>
+  <blockquote class="pf-q">Papillon has a rare ability to see, with remarkable clarity,<br class="mb"> what others cannot, <br><span>and the work ethic to turn that vision into reality.</span></blockquote>
   <p class="pf-a">Andrew Harwood<br><span>Fractional CFO &middot; Venture Capital &amp; Corporate&nbsp;Finance</span></p>
 </section>
 
